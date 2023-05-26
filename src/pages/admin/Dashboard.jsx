@@ -34,7 +34,8 @@ const Dashboard = () => {
               <span>April 21, 2030</span>
             </p>
             <div className=' flex items-center space-x-4'>
-              <p className='hidden text-gray-500 sm:flex items-center space-x-1 p-1.5 px-3 rounded-md border border-gray-50 bg-white cursor-pointer '>
+              <p onClick={()=> window.location.reload()}
+                className='hidden text-gray-500 sm:flex items-center space-x-1 p-1.5 px-3 rounded-md border border-gray-50 bg-white cursor-pointer '>
                 <span>
                   <BiRefresh className='w-6 h-6'/>
                 </span>

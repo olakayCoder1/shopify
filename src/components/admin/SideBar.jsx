@@ -5,7 +5,7 @@ import {HiChartPie, HiShoppingBag, HiInbox, HiUser, HiArrowSmRight, HiTable} fro
 const SideBar = () => {
   return (
     <>
-      <div className=" min-w-[250px] h-screen bg-gray-700 hidden md:block">
+      <div className="w-[20%] min-w-[200px] max-w-[300px] h-screen bg-gray-700 hidden md:block">
         {/* <Sidebar aria-label="Sidebar with multi-level dropdown example" className='bg-slate-500  h-screen'>
           <Sidebar.Items className=''>
             <Sidebar.ItemGroup>

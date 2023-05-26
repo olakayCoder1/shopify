@@ -10,7 +10,7 @@ import BreakDownCard from '../../components/admin/BreakDownCard'
 
 
 
-const Order = () => {
+const Customers = () => {
 
   const [show, setShow] = useState(false)
   const onClick = () => { setShow(!show) }
@@ -20,7 +20,7 @@ const Order = () => {
     <div className=' flex '>
       <SideBar />
       <div className='w-full md:w-[80%] bg-gray-100'>
-        <Header pageName='Orders' />
+        <Header pageName='Customers' />
         <div className=' p-4'>
           {/* Date card, Create item card and refresh page card */}
           <div className=' flex justify-between items-center'>
@@ -38,18 +38,13 @@ const Order = () => {
                 </span>
                 <span>Refresh</span>
               </p>
-              <p className='text-white flex items-center space-x-1 p-1.5 px-3 rounded-md border border-blue-500 bg-blue-700  cursor-pointer'>
-                <span>Add product</span>
-              </p>
             </div>
             
           </div>
           {/* Analytics start */}
           <div className=' grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-4'>
-            <BreakDownCard Icon={BsBasket} cardTitle='Total orders' cardColor='blue' cardQuantity={'6,000'} />
-            <BreakDownCard Icon={BsBasket} cardTitle='Completed orders' cardColor='green' cardQuantity={'6,000'} />
-            <BreakDownCard Icon={BsBasket} cardTitle='Pending orders' cardColor='yellow' cardQuantity={'6,000'} />
-            <BreakDownCard Icon={BsBasket} cardTitle='Cancelled orders' cardColor='red' cardQuantity={'6,000'} />
+            <BreakDownCard Icon={HiOutlineUsers} cardTitle='Total ' cardColor='blue' cardQuantity={'6,000'} />
+            <BreakDownCard Icon={HiOutlineUsers} cardTitle='Active' cardColor='green' cardQuantity={'6,000'} />
                    
           </div>
 
@@ -286,4 +281,4 @@ const Order = () => {
   )
 }
 
-export default Order
+export default Customers
