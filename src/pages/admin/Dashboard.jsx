@@ -22,7 +22,7 @@ const Dashboard = () => {
       <div className=' grow bg-gray-100'>
         <Header pageName='Dashboard'/>
         <div className=' p-4'>
-          <h2 className='my-4 text-base font-medium'>
+          <h2 className='mb-5 text-3xl font-semibold'>
             Good morning, <span className=' text-blue-500'>Olanrewaju</span>
           </h2>
           {/* Date card, Create item card and refresh page card */}
