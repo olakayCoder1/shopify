@@ -19,7 +19,7 @@ const Dashboard = () => {
   return (
     <div className=' flex '>
       <SideBar />
-      <div className=' grow bg-gray-100'>
+      <div className=' grow '>
         <Header pageName='Dashboard'/>
         <div className=' p-4'>
           <h2 className='mb-5 text-3xl font-semibold'>
@@ -27,7 +27,7 @@ const Dashboard = () => {
           </h2>
           {/* Date card, Create item card and refresh page card */}
           <div className=' flex justify-between items-center'>
-            <p className=' text-gray-500 flex items-center space-x-2 p-2 px-4 rounded-sm border border-gray-50 bg-white '>
+            <p className=' shadow-lg text-gray-500 flex items-center space-x-2 p-2 px-4 rounded-sm border border-gray-50 bg-white '>
               <span>
                 <BsCalendar2Event className=' text-gray-700 w-4 h-4'/>
               </span>
@@ -35,13 +35,13 @@ const Dashboard = () => {
             </p>
             <div className=' flex items-center space-x-4'>
               <p onClick={()=> window.location.reload()}
-                className='hidden text-gray-500 sm:flex items-center space-x-1 p-1.5 px-3 rounded-md border border-gray-50 bg-white cursor-pointer '>
+                className=' shadow-lg hidden text-gray-500 sm:flex items-center space-x-1 p-1.5 px-3 rounded-md border border-gray-50 bg-white cursor-pointer '>
                 <span>
                   <BiRefresh className='w-6 h-6'/>
                 </span>
                 <span>Refresh</span>
               </p>
-              <p className='text-white flex items-center space-x-1 p-1.5 px-3 rounded-md border border-blue-500 bg-blue-700  cursor-pointer'>
+              <p className=' shadow-lg text-white flex items-center space-x-1 p-1.5 px-3 rounded-md border border-blue-500 bg-blue-700  cursor-pointer'>
                 <span>Add product</span>
               </p>
             </div>
@@ -58,10 +58,10 @@ const Dashboard = () => {
           {/* Pending Order */}
 
           <div>
-            <h2 className='my-4 text-base font-medium'>
+            <h2 className='my-4 text-base font-semibold'>
               Pending Orders
             </h2>
-            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <div class="relative overflow-x-auto shadow-md ">
                 {show ? (
                   <div className=' flex justify-center place-content-center py-12'>
                     <Spinner
@@ -153,7 +153,8 @@ const Dashboard = () => {
           </div>
           {/* Pagination  */}
           <Pagination
-              currentPage={1}
+              className=' py-4'
+              currentPage={9}
               onPageChange={fetchData}
               totalPages={100}
           />

@@ -3,7 +3,7 @@ import {AiOutlineMenu} from 'react-icons/ai'
 
 const Header = ({pageName}) => {
   return (
-    <header className="flex items-center justify-between space-x-4 p-4 bg-white">
+    <header className="flex items-center justify-between space-x-4 p-4 bg-white shadow-md">
       <section className=" flex space-x-2 items-center">
         <p className=" p-1 rounded cursor-pointer md:hidden">
           <AiOutlineMenu className="w-5 h-5 sm:w-6 sm:h-6"/>

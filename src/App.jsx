@@ -15,7 +15,7 @@ function App() {
   }
 
   return (
-    <div className=' text-sm font-normal text-gray-700'>
+    <div className=' text-sm font-normal text-gray-700 bg-white'>
     <Routes>
       <Route path="/" element={<Dashboard/>} />
       <Route path="/admin/*" element={<AdminWrapper/>} />
