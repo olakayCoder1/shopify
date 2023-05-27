@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import SideBar from '../../components/admin/SideBar'
+// import SideBar from '../../components/admin/SideBar'
+import SideBar from '../../components/admin/sidebar/SideBar'
 import Header from '../../components/admin/Header'
 
 
@@ -32,57 +33,115 @@ const CreateItem = () => {
   return (
     <div className=' flex bg-white'>
       <SideBar />
-      <div className='w-full md:w-[80%]'>
+      <div className='grow'>
         <Header pageName='Add Product' />
         <div className=' p-4'>  
-            <h2 className='mb-5 text-3xl font-semibold'>Add new product</h2>
-            {/* form section start */}
-            
-            <form>
-                <div class="grid md:grid-cols-2 md:gap-6">
-                    <div class="mb-6">
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Name</label>
-                        <input type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required />
-                    </div>
-                    <div class="mb-6">
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Price</label>
-                        <input type="number" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required />
-                    </div>
+            {/* Kippa */}
+
+            <div  class="py-10 mt-5 px-4">
+                <h1 class="text-2xl md:text-3xl text-left md:text-center">
+                        Add New Item
+                </h1> 
+                <div class="mt-10">
+                    <form  >
+                        <div class="my-5">
+                            <h4 class="my-5 mx-4 py-4 border-b-2 border-slate-300">
+                                01 -  Product Detail
+                            </h4>                 
+                            <div class="  ">
+                                
+                                <div class=" p-4 space-y-4 text-gray-500 ">
+                                    <h2 class="max-w-full">Name</h2> 
+                                    <div class="max-w-full">
+                                        <div class="relative">
+                                            <div>
+                                                <label  for="Invoice Date" class="w-full">
+                                                    <div  class="">
+                                                    <span > </span>
+                                                    </div> 
+                                                    <input   autocomplete="off"   
+                                                        placeholder="Product Name" type="text" 
+                                                        class=" rounded-md border-2 border-gray-300 flex-1 appearance-none w-full py-3 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent [object Object] 0" /> 
+                                                    <div  class="w-full relative"></div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class=" p-4 space-y-4 text-gray-500 ">
+                                    <h2 class="max-w-full">Price</h2> 
+                                    <div class="max-w-full">
+                                        <div class="relative">
+                                        <div class="vd-wrapper">
+                                            <div class="vd-activator">
+                                            <label  for="Invoice Date" class="w-full">
+                                                <div  class="">
+                                                <span > </span>
+                                                </div> 
+                                                <input   autocomplete="off"   placeholder="0.00" type="number" class="FormInput__field rounded-md border-2 border-gray-300 flex-1 appearance-none w-full py-3 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent [object Object] 0" /> 
+                                                <div  class="w-full relative"></div>
+                                            </label>
+                                            </div>
+                                            <div class="vd-menu" role="menu"></div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                </div> 
+                                
+                                
+                                {/* gdggdd */}
+                                <div className="col-span-2 mb-6">
+                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Upload Images</label>
+                                    <input accept='image/jpeg, image/jpg, image/png' multiple
+                                        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"  
+                                        type="file" 
+                                        required
+                                        onChange={(e)=>{
+                                            if(e.target.files && e.target.files.length > 0){
+                                                        setFiles(e.target.files)
+                                                    }} 
+                                            }/>
+                                </div>
+
+                                {/* hhdhhdhd */}
+                                <div class="w-full col-span-2 p-4 space-y-4 text-gray-500">
+                                    <h2 class="max-w-full">Description</h2> 
+                                    <div class="max-w-full">
+                                        <div class="relative">
+                                        <label  for="Note" class="FormTextArea w-100">
+                                            <div  class="FormTextArea__label">
+                                            <span > </span>
+                                            </div> 
+                                            <textarea  autocomplete="off" 
+                                            
+                                            type="text" name="Note" placeholder="Product description" class="FormTextArea__field rounded-md border border-gray-300 flex-1 appearance-none w-full py-3 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent [object Object] 0"></textarea> 
+                                        </label>
+                                        </div>
+                                    
+                                    </div>
+                                </div>
+
+                                
+                            </div>
+
+
+                        </div> 
+                        <div class="my-10">
+                            <div class="w-full">
+                            <div class="my-5">
+                                
+                                <div class="my-5 mx-3">
+                                <button  type="button" id="addnewitem" class="py-3 flex items-center justify-center bg-white border-2 focus:ring-blue-500 focus:ring-offset-blue-200 text-gray-700 transition ease-in duration-200 text-center text-base font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg w-fit px-10">
+                                    Add new Item
+                                </button>
+                                </div>
+                                </div>
+                            </div> 
+
+                        </div>
+                    </form>
                 </div>
-                <div class="grid md:grid-cols-2 md:gap-6">
-                    <div className="mb-6">
-                    <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select product status</label>
-                    <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option>Available</option>
-                        <option>Out of stock</option>
-                    </select>
-                    </div>
-                    <div className="mb-6">
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Upload Images</label>
-                        <input accept='image/jpeg, image/jpg, image/png' multiple
-                            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"  
-                            type="file" 
-                            required
-                            onChange={(e)=>{
-                                if(e.target.files && e.target.files.length > 0){
-                                            setFiles(e.target.files)
-                                            // setPreviews(URL.createObjectURL(e.target.files[0]))
-                                        }} 
-                                }/>
-                    </div>
-                    
-
-                    
-                    
-
-                    
-
-                </div>
-            
-            
-
-                <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create product</button>
-            </form>
+            </div>
 
             {/* Image preview start */}
             <div class="container mx-auto px-5 py-2 lg:px-32 lg:pt-12">
@@ -90,8 +149,11 @@ const CreateItem = () => {
             {previews &&
                 previews?.map((pic, index) => {
                 return (
-                    <div key={index} class="flex w-1/3 flex-wrap">
-                        <div class="w-full p-1 md:p-2">
+                    <div key={index} 
+                        // style={}
+                        
+                        class="flex w-1/3 flex-wrap border max-w-[250px] max-h-[250px]">
+                        <div class="w-full h-full p-1 md:p-2">
                             <img
                             alt="gallery"
                             class="block h-full w-full rounded-lg object-cover object-center"

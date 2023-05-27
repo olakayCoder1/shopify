@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import {Link} from 'react-router-dom'
 import { Pagination, Modal , Button , Spinner , Badge } from 'flowbite-react'
-import SideBar from '../../components/admin/SideBar'
+// import SideBar from '../../components/admin/SideBar'
+import SideBar from '../../components/admin/sidebar/SideBar'
 import Header from '../../components/admin/Header'
 import {BsCalendar2Event,BsBasket} from 'react-icons/bs'
 import {BiRefresh} from 'react-icons/bi'
@@ -20,7 +21,7 @@ const Customers = () => {
   return (
     <div className=' flex bg-white'>
       <SideBar />
-      <div className='w-full md:w-[80%]'>
+      <div className='grow'>
         <Header pageName='Customers' />
         <div className=' p-4'>  
           {/* Date card, Create item card and refresh page card */}

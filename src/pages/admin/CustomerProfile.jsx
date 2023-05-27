@@ -2,7 +2,8 @@ import { useState } from 'react'
 import {Button} from 'flowbite-react'
 import Profile from '../../components/admin/customer/Profile'
 import Order from '../../components/admin/customer/Order'
-import SideBar from '../../components/admin/SideBar'
+// import SideBar from '../../components/admin/SideBar'
+import SideBar from '../../components/admin/sidebar/SideBar'
 import Header from '../../components/admin/Header'
 import {CgProfile} from 'react-icons/cg'
 import {BsBasket} from 'react-icons/bs'
@@ -41,7 +42,7 @@ const CustomerProfile = () => {
     return (
     <div className=' flex '>
       <SideBar />
-      <div className='w-full md:w-[80%] bg-gray-100'>
+      <div className='grow'>
         <Header pageName='Customers' />
         <div className=' bg-white '>
             <div className="text-center md:text-left md:flex md:space-x-4 md:items-start bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 text-white p-4">

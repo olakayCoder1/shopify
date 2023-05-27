@@ -1,6 +1,8 @@
+import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { Pagination, Modal , Button , Spinner } from 'flowbite-react'
-import SideBar from '../../components/admin/SideBar'
+// import SideBar from '../../components/admin/SideBar'
+import SideBar from '../../components/admin/sidebar/SideBar'
 import Header from '../../components/admin/Header'
 import {BsCalendar2Event,BsBasket} from 'react-icons/bs'
 import {BiRefresh} from 'react-icons/bi'
@@ -11,7 +13,7 @@ import BreakDownCard from '../../components/admin/BreakDownCard'
 
 
 const Dashboard = () => {
-
+  const navigate = useNavigate()
   const [show, setShow] = useState(false)
   const onClick = () => { setShow(!show) }
   const onClose = () => { setShow(false) }
@@ -41,7 +43,7 @@ const Dashboard = () => {
                 </span>
                 <span>Refresh</span>
               </p>
-              <p className=' shadow-lg text-white flex items-center space-x-1 p-1.5 px-3 rounded-md border border-blue-500 bg-blue-700  cursor-pointer'>
+              <p onClick={()=> navigate('/admin/products/create')} className=' shadow-lg text-white flex items-center space-x-1 p-1.5 px-3 rounded-md border border-blue-500 bg-blue-700  cursor-pointer'>
                 <span>Add product</span>
               </p>
             </div>
