@@ -19,11 +19,8 @@ const Dashboard = () => {
   const onClose = () => { setShow(false) }
   const fetchData = () => {}
   return (
-    <div className=' flex '>
-      <SideBar />
-      <div className=' grow '>
-        <Header pageName='Dashboard'/>
-        <div className=' p-4'>
+    <div className=' '>
+      <div className=''>
           <h2 className='mb-5 text-3xl font-semibold'>
             Good morning, <span className=' text-blue-500'>Olanrewaju</span>
           </h2>
@@ -198,7 +195,6 @@ const Dashboard = () => {
             </Button>
           </Modal.Footer>
         </Modal>
-      </div>
     </div>
   )
 }

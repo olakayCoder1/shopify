@@ -1,12 +1,8 @@
 import { useState } from 'react'
 import {Link} from 'react-router-dom'
 import { Pagination, Modal , Button , Spinner , Badge } from 'flowbite-react'
-// import SideBar from '../../components/admin/SideBar'
-import SideBar from '../../components/admin/sidebar/SideBar'
-import Header from '../../components/admin/Header'
-import {BsCalendar2Event,BsBasket} from 'react-icons/bs'
+import {BsCalendar2Event} from 'react-icons/bs'
 import {BiRefresh} from 'react-icons/bi'
-import {MdOutlineProductionQuantityLimits} from 'react-icons/md' 
 import {HiOutlineUsers} from 'react-icons/hi'
 import BreakDownCard from '../../components/admin/BreakDownCard'
 
@@ -19,11 +15,8 @@ const Customers = () => {
   const onClose = () => { setShow(false) }
   const fetchData = () => {}
   return (
-    <div className=' flex bg-white'>
-      <SideBar />
-      <div className='grow'>
-        <Header pageName='Customers' />
-        <div className=' p-4'>  
+    <div>
+      <div className=' p-4'>  
           {/* Date card, Create item card and refresh page card */}
           <div className=' flex justify-between items-center'>
             <p className=' shadow-md text-gray-500 flex items-center space-x-2 p-2 px-4 rounded-sm border border-gray-50 bg-white '>
@@ -278,7 +271,6 @@ const Customers = () => {
             </Button>
           </Modal.Footer>
         </Modal>
-      </div>
     </div>
   )
 }

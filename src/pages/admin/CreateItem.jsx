@@ -31,11 +31,7 @@ const CreateItem = () => {
 
 
   return (
-    <div className=' flex bg-white'>
-      <SideBar />
-      <div className='grow'>
-        <Header pageName='Add Product' />
-        <div className=' p-4'>  
+    <div className=' p-4'>  
             {/* Kippa */}
 
             <div  class="py-10 mt-5 px-4">
@@ -169,9 +165,6 @@ const CreateItem = () => {
 
         
         </div>
-
-      </div>
-    </div>
   )
 }
 

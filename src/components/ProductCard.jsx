@@ -1,6 +1,7 @@
 import {motion} from 'framer-motion'
 import { useState } from 'react';
 import {MdShoppingBasket} from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 
 const ProductCard = () => {
@@ -20,9 +21,9 @@ const ProductCard = () => {
         <div className="bg-white block rounded-lg shadow-lg ">
             <div className="relative overflow-hidden bg-no-repeat bg-cover">
                 <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" className="w-full rounded-t-lg" />
-                <a href="#!">
+                <Link to="/products/details">
                 <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"></div>
-                </a>
+                </Link>
             </div>
         <div className="p-4">
             <h5 className="text-base font-normal mb-2">Darren Randolph</h5>

@@ -3,7 +3,8 @@ import Header from "../components/Header"
 import Woker from "../components/Woker";
 import Footer from "../components/Footer";
 import  Carts from "../components/carts/Carts";
-
+import Promo from '../components/example/Promo';
+import Feature from '../components/Feature';
 
 const Home = () => {
 
@@ -39,6 +40,8 @@ const Home = () => {
                 </div>
             </section>
             <Woker />
+            <Promo />
+            <Feature />
         </div>
       </div>
         <Carts toggleCart={showCart} setToggleCart={handleCartShow}/>

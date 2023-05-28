@@ -17,11 +17,8 @@ const Product = () => {
   const onClose = () => { setShow(false) }
   const fetchData = () => {}
   return (
-    <div className=' flex '>
-      <SideBar />
-      <div className='grow '>
-        <Header pageName='Products' />
-        <div className=' p-4'>
+    <div className=''>
+      <div className=' '>
           {/* Date card, Create item card and refresh page card */}
           <div className=' flex justify-between items-center'>
             <p className=' shadow-lg text-gray-500 flex items-center space-x-2 p-2 px-4 rounded-sm border border-gray-50 bg-white '>
@@ -256,7 +253,6 @@ const Product = () => {
             </Button>
           </Modal.Footer>
         </Modal>
-      </div>
     </div>
   )
 }

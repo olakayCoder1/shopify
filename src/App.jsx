@@ -1,5 +1,6 @@
 import {React , useState } from 'react'
 import Dashboard from './pages/admin/Dashboard'
+import AdminContainer from './pages/admin/AdminContainer';
 import Products from './pages/Products';
 import AdminWrapper from './pages/admin/AdminWrapper'
 import {Route, Routes } from "react-router-dom";
@@ -11,7 +12,11 @@ import Login from './pages/admin/Login';
 import Woker from './components/Woker';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
-import ForgetPassword from './Pages/ForgetPassword'
+import ForgetPassword from './Pages/ForgetPassword'  
+import ResetPassword from './Pages/ResetPassword'
+import Register from './pages/Register';
+import ProductDetails from './pages/ProductDetails';
+import About from './pages/About';
 
 const ROLES = {
   'User': 2001,
@@ -29,17 +34,21 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route path="unauthorized" element={<Unauthorized />} />
         <Route path="/login" element={<Login/>} />
+        <Route path="/register" element={<Register/>} />
         <Route path="/p" element={<Woker/>} />
+        <Route path="/cta" element={<AdminContainer/>} />
         <Route path="/products" element={<Products/>} />
+        <Route path="/products/details" element={<ProductDetails/>} />
         <Route path="/contactus" element={<Contact/>} /> 
-        <Route path="/forget-password" element={<ForgetPassword/>} /> 
-        <Route path="/reset-password" element={<ForgetPassword/>} /> 
+        <Route path="/aboutus" element={<About/>} /> 
+        <Route path="/forget-password" element={<ForgetPassword/>} />  
+        <Route path="/reset-password" element={<ResetPassword/>} /> 
         <Route path="/" element={<Home/>} />
         
         {/* we want to protect these routes */}
-        <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
-          <Route path="/admin/*" element={<AdminWrapper/>} /> 
-        </Route>
+        {/* <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}> */}
+          <Route path="/admin/*" element={<AdminContainer/>} /> 
+        {/* </Route> */}
         {/* catch all */}
         <Route path="*" element={<Missing />} />
         

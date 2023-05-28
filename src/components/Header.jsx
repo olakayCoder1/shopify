@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { MdShoppingBasket, MdMenu, MdLogout ,MdOutlineLogin } from "react-icons/md";
 import { motion } from "framer-motion";
-// https://www.youtube.com/watch?v=kmU7uX3ZHJc 
 import Logo from '../assets/Group 128.png';
 import userlogo from "../assets/avatar.png";
 import { Link, useNavigate } from "react-router-dom";
@@ -41,13 +40,7 @@ const Header = ({ toggleCart , setToggleCart }) => {
           <img src={Logo} className="w-8 object-cover" alt="logo" />
         </Link>
 
-        {/* <form className=" w-[300px] lg:w-[400px] ">
-          <input  type='text' 
-          className=' w-full text-sm font-medium  text-gray-500 ring-0 border border-gray-300 focus:ring-0 focus:border-[1px] focus:border-gray-300 placeholder:text-gray-500 rounded-lg'
-          placeholder="Search products, brands , categories"
-          />
-        </form>
-         */}
+       
         <div className="flex items-center gap-8">
           <motion.div 
             initial={{ opacity: 0, x: 200 }}
@@ -91,41 +84,29 @@ const Header = ({ toggleCart , setToggleCart }) => {
                     exit={{ opacity: 0, scale: 0.6 }}
                     className="w-40 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-12 right-0"
                     >
-                  <p  className=" lg:hidden px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base"
-                     onClick={() => {
-                      navigate('/detail')
-                      return setIsMenu(false)
-                     }}
+                  <Link to='/aboutus'  className=" lg:hidden px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base"
+                    
                       
                      >
                     About Us
-                  </p>
-                  <p  className=" lg:hidden px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base"
-                     onClick={() => {
-                      navigate('/detail')
-                      return setIsMenu(false)
-                     }}
+                  </Link>
+                  <Link to='/contactus'  className=" lg:hidden px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base"
+                    
                      >
                     Service
-                  </p>
-                  <p
-                className="m-2 p-2 rounded-md shadow-md flex items-center justify-center bg-gray-200 gap-3 cursor-pointer hover:bg-gray-300 transition-all duration-100 ease-in-out text-textColor text-base"
-                onClick={() => {
-                      navigate('/detail')
-                      return setIsMenu(false)
-                     }}
+                  </Link>
+                  <Link to='/login'
+                    className="m-2 p-2 rounded-md shadow-md flex items-center justify-center bg-gray-200 gap-3 cursor-pointer hover:bg-gray-300 transition-all duration-100 ease-in-out text-textColor text-base"
+           
               >
                 Sign In <MdOutlineLogin />
-              </p>
-              <p
+              </Link>
+              <Link to='/'
                 className="m-2 p-2 rounded-md shadow-md flex items-center justify-center bg-gray-200 gap-3 cursor-pointer hover:bg-gray-300 transition-all duration-100 ease-in-out text-textColor text-base"
-                onClick={() => {
-                      navigate('/detail')
-                      return setIsMenu(false)
-                     }}
+                
               >
                  Logout <MdLogout />
-              </p>
+              </Link>
               
               </motion.div>
 
@@ -178,53 +159,43 @@ const Header = ({ toggleCart , setToggleCart }) => {
               exit={{ opacity: 0, scale: 0.6 }}
               className="w-40 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-12 right-0"
             >
-              <ul className="flex flex-col ">
-                <li
+              <div className="flex flex-col ">
+                <Link to='/'
                   className="text-base text-textColor  duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
-                  onClick={() => {
-                      navigate('/')
-                      return setIsMenu(false)
-                     }}
+                  
                 >
                   Home
-                </li>
-                <li
+                </Link>
+                <Link to='/products'
                   className="text-base text-textColor  duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
-                  onClick={() => {
-                      navigate('/products')
-                      return setIsMenu(false)
-                     }}
+                  
                 >
                   Product
-                </li>
-                <li
+                </Link>
+                <Link to='/aboutus'
                   className="text-base text-textColor  duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
-                  onClick={() => {
-                      navigate('/detail')
-                      return setIsMenu(false)
-                     }}
+                  
                 >
                   About Us
-                </li>
-                <li
+                </Link>
+                <Link to='/contactus'
                   className="text-base text-textColor  duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
-                  onClick={() => setIsMenu(false)}
+                  // onClick={() => setIsMenu(false)}
                 >
-                  Service
-                </li>
-              </ul>
-              <p
-                className="m-2 p-2 rounded-md shadow-md flex items-center justify-center bg-gray-200 gap-3 cursor-pointer hover:bg-gray-300 transition-all duration-100 ease-in-out text-textColor text-base"
-                onClick={() => setIsMenu(false)}
+                  Contact us
+                </Link>
+              </div>
+              <Link to='/login' className="m-2 p-2 rounded-md shadow-md flex items-center justify-center bg-gray-200 gap-3 cursor-pointer hover:bg-gray-300 transition-all duration-100 ease-in-out text-textColor text-base"
+                // onClick={() => setIsMenu(false)}
               >
                 Sign In <MdOutlineLogin />
-              </p>
-              <p
+              </Link>
+              <Link to='/'
                 className="m-2 p-2 rounded-md shadow-md flex items-center justify-center bg-gray-200 gap-3 cursor-pointer hover:bg-gray-300 transition-all duration-100 ease-in-out text-textColor text-base"
-                onClick={() => setIsMenu(false)}
+                // onClick={() => setIsMenu(false)}
               >
                 Logout <MdLogout />
-              </p>
+              </Link>
             </motion.div>
           )}
           
