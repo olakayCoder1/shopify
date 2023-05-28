@@ -9,7 +9,7 @@ import {BiRefresh} from 'react-icons/bi'
 import {MdOutlineProductionQuantityLimits} from 'react-icons/md' 
 import {HiOutlineUsers} from 'react-icons/hi'
 import BreakDownCard from '../../components/admin/BreakDownCard'
-
+import OrderTable from '../../components/order/OrderTable'
 
 
 const Dashboard = () => {
@@ -55,108 +55,7 @@ const Dashboard = () => {
           </div>
 
           {/* Pending Order */}
-
-          <div>
-            <h2 className='my-4 text-base font-semibold'>
-              Pending Orders
-            </h2>
-            <div class="relative overflow-x-auto shadow-md ">
-                {show ? (
-                  <div className=' flex justify-center place-content-center py-12'>
-                    <Spinner
-                        aria-label="Info spinner example"
-                        color="info"
-                        className="h-6 w-6"
-                      />
-                  </div>
-                  
-                ): (
-                  <table class="w-full text-sm text-left text-gray-500 ">
-                      <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
-                          <tr>
-                              <th scope="col" class="px-6 py-3">
-                                  Customer
-                              </th>
-                              <th scope="col" class="px-6 py-3">
-                                  Product QTY
-                              </th>
-                              <th scope="col" class="px-6 py-3">
-                                  Total
-                              </th>
-                              <th scope="col" class="px-6 py-3">
-                                  Date
-                              </th>
-                              <th scope="col" class="px-6 py-3">
-                                  <span class="sr-only">Edit</span>
-                              </th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                  Apple MacBook Pro 17"
-                              </th>
-                              <td class="px-6 py-4">
-                                  Silver
-                              </td>
-                              <td class="px-6 py-4">
-                                  Laptop
-                              </td>
-                              <td class="px-6 py-4">
-                                  $2999
-                              </td>
-                              <td class="px-6 py-4 text-right">
-                              <p onClick={onClick} class=" cursor-pointer font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</p>
-                              </td>
-                          </tr>
-                          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                  Microsoft Surface Pro
-                              </th>
-                              <td class="px-6 py-4">
-                                  White
-                              </td>
-                              <td class="px-6 py-4">
-                                  Laptop PC
-                              </td>
-                              <td class="px-6 py-4">
-                                  $1999
-                              </td>
-                              <td class="px-6 py-4 text-right">
-                              <p onClick={onClick} class="cursor-pointer font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</p>
-                              </td>
-                          </tr>
-                          <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-                              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                  Magic Mouse 2
-                              </th>
-                              <td class="px-6 py-4">
-                                  Black
-                              </td>
-                              <td class="px-6 py-4">
-                                  Accessories
-                              </td>
-                              <td class="px-6 py-4">
-                                  $99
-                              </td>
-                              <td class="px-6 py-4 text-right">
-                                  <p onClick={onClick} class=" cursor-pointer font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</p>
-                              </td>
-                          </tr>
-                      </tbody>
-                  </table>
-                )}
-                
-            </div>
-
-          </div>
-          {/* Pagination  */}
-          <Pagination
-              className=' py-4'
-              currentPage={9}
-              onPageChange={fetchData}
-              totalPages={100}
-          />
+          <OrderTable />
         </div>
 
 

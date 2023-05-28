@@ -40,11 +40,8 @@ const CustomerProfile = () => {
 
    
     return (
-    <div className=' flex '>
-      <SideBar />
-      <div className='grow'>
-        <Header pageName='Customers' />
-        <div className=' bg-white '>
+    <div className=''>
+      <div className=' bg-white '>
             <div className="text-center md:text-left md:flex md:space-x-4 md:items-start bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 text-white p-4">
                 <img
                     src="https://avatars.githubusercontent.com/u/95700260?v=4"
@@ -77,7 +74,6 @@ const CustomerProfile = () => {
                 {currentTab === 'Orders' && <Order />}
             </div>
         </div>
-      </div>
     </div>
   )
 }

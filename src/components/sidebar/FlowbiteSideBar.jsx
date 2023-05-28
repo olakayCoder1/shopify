@@ -1,33 +1,18 @@
+import { Sidebar } from "flowbite-react"
+import {FaAccessibleIcon} from 'react-icons/fa'
 import  { useEffect } from 'react';
 import { Link  } from "react-router-dom";
 import SideBarLink from "./SideBarLink";
-import {AiOutlineHome,AiOutlineQuestion,AiOutlineSetting,AiOutlineUnorderedList} from 'react-icons/ai'
+import {AiOutlineHome,AiOutlineQuestion,AiOutlineSetting} from 'react-icons/ai'
 import {MdOutlineExplore,MdHistory,MdOutlineChat} from 'react-icons/md'
 import {TbUser} from 'react-icons/tb' 
-import {IoMdAddCircle} from 'react-icons/io'
-import {BsCalendar2Event,BsBasket, BsCart3} from 'react-icons/bs'
+import {BsBasket, BsCart3} from 'react-icons/bs'
 import {FiUsers} from 'react-icons/fi'
 
-const SideBar = ({showSideBar}) => {
-
-
-    useEffect(() => {
-        // Your effect code here
-        console.log(window.location.pathname);
-    
-        // Cleanup function (optional)
-        return () => {
-          // Cleanup code here
-        };
-      }, [window.location.pathname])
-
-
+const FlowbiteSideBar = () => {
   return (
-    <div
-      class={`${showSideBar ? "" : "-translate-x-full"} fixed top-0 left-0 z-40 w-64 h-screen pt-14 transition-transform  bg-white border-r border-gray-200 md:translate-x-0 "`}
-    //   aria-label="Sidenav"  id="drawer-navigation"
-    >
-      <div class=" overflow-y-auto py-5 px-3 h-full bg-white dark:bg-gray-800">
+    <div>
+      <div class=" overflow-y-auto py-5 px-3 h-full w-full">
         <form action="#" method="GET" class="md:hidden mb-2">
           <label for="sidebar-search" class="sr-only">Search</label>
           <div class="relative">
@@ -56,7 +41,7 @@ const SideBar = ({showSideBar}) => {
             />
           </div>
         </form>
-        <ul class="space-y-2 ">
+        <ul class="space-y-2  bg-green-700">
             <SideBarLink Icon={AiOutlineHome} linkHref='/admin'  linkName='Dashboard' isActive={ window.location.pathname === '/admin'}/>
             <SideBarLink Icon={BsCart3} linkName='Orders' isActive={false} linkHref='/admin/orders' />  
             <SideBarLink Icon={BsBasket} linkName='Products' isActive={false} linkHref='/admin/products' />
@@ -67,7 +52,7 @@ const SideBar = ({showSideBar}) => {
           <li>
             <button
               type="button"
-              class="flex items-center p-2 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+              class="flex items-center p-2 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 "
               aria-controls="dropdown-sales"
               data-collapse-toggle="dropdown-sales"
             >
@@ -367,4 +352,4 @@ const SideBar = ({showSideBar}) => {
   )
 }
 
-export default SideBar
+export default FlowbiteSideBar

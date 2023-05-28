@@ -17,7 +17,7 @@ import ResetPassword from './Pages/ResetPassword'
 import Register from './pages/Register';
 import ProductDetails from './pages/ProductDetails';
 import About from './pages/About';
-
+import TestK from './TestK';
 const ROLES = {
   'User': 2001,
   'Editor': 1984,
@@ -43,12 +43,13 @@ function App() {
         <Route path="/aboutus" element={<About/>} /> 
         <Route path="/forget-password" element={<ForgetPassword/>} />  
         <Route path="/reset-password" element={<ResetPassword/>} /> 
+        {/* <Route path="/" element={<TestK/>} /> */}
         <Route path="/" element={<Home/>} />
         
         {/* we want to protect these routes */}
-        {/* <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}> */}
+        <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
           <Route path="/admin/*" element={<AdminContainer/>} /> 
-        {/* </Route> */}
+        </Route>
         {/* catch all */}
         <Route path="*" element={<Missing />} />
         

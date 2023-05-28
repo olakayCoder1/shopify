@@ -1,10 +1,6 @@
 import {Link } from 'react-router-dom'
 
 function SideBarLink({Icon , linkName, linkHref ,isActive }) {
-
-    console.log(isActive, linkName )
-
-    console.log(window.location.pathname)
   return (
     <li>
         <Link to={linkHref}
