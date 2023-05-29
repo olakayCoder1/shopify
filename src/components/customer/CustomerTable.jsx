@@ -1,4 +1,4 @@
-import { Pagination } from 'flowbite-react'
+import { Pagination , Spinner } from 'flowbite-react'
 import CustomerTableRow from './CustomerTableRow'
 import { useState } from 'react'
 

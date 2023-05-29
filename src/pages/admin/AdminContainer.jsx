@@ -9,7 +9,6 @@ import Product from "./Product";
 import CreateItem from "./CreateItem";
 import Order from "./Order" ;
 import OrderDetail from "./OrderDetail";
-import Login from "./Login";
 
 
 const AdminContainer = () => {

@@ -8,8 +8,8 @@ import  Carts from "../components/carts/Carts";
 const AboutSection = ({sectionTitle, sectionDescription}) => {
     return (
         <div>
-            <h1 className="mb-2 text-2xl font-bold leading-tight text-gray-800 lg:mb-6 lg:text-3xl">{sectionTitle}</h1>
-            <p className=' text-sm font-medium leading-tight text-gray-500'>
+            <h1 className="heading">{sectionTitle}</h1>
+            <p className=' text-sm font-medium leading-6 text-gray-500'>
                 {sectionDescription}
             </p>
         </div>
@@ -38,17 +38,12 @@ const RelatedArticle = ({articleTitle, articleDescription , articleLink}) => {
 
 const About = () => {
 
-    const [ showCart , setShowCart ] = useState(false)
-
-    function handleCartShow(){
-        setShowCart(!showCart)
-    }
   return (
     <div>
-        <Header toggleCart={showCart} setToggleCart={handleCartShow}/>
+        <Header />
         <div>
             <div>
-                <main className="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900">
+                <main className="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white ">
                     <div className="flex justify-between px-4 mx-auto max-w-screen-xl ">
                         <article className="mx-auto w-full max-w-2xl  space-y-4">
                                 <AboutSection sectionTitle='Who we are'
@@ -120,7 +115,7 @@ const About = () => {
                     </div>
                 </main>
 
-                <aside aria-label="Related articles" className="py-8 lg:py-24 bg-gray-50 dark:bg-gray-800">
+                <aside aria-label="Related articles" className="py-24 bg-gray-50 ">
                     <div className="px-4 mx-auto max-w-screen-xl">
                         <h2 className="mb-8 text-2xl font-bold text-gray-900 ">Related articles</h2>
                         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
@@ -172,7 +167,6 @@ const About = () => {
             </div>
 
         </div>
-        <Carts toggleCart={showCart} setToggleCart={handleCartShow}/>
         <Footer />
     </div>
   )

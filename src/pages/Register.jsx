@@ -3,108 +3,74 @@ import {Link} from 'react-router-dom'
 const Register = () => {
 
   return (
-    <>
-        <section className="h-screen">
-            <div className="h-full">
-                <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
-                    <div
-                        className="hidden md:block shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
-                        <img
-                        src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-                        className="w-full"
-                        alt="Sample image" />
+    <div className="flex items-center min-h-screen p-4 bg-gray-100 lg:justify-center">
+        <div className="w-full mx-auto max-w-sm flex flex-col overflow-hidden bg-white rounded-md shadow-lg max md:flex-row md:flex-1" >
+            <div className="p-5 bg-white md:flex-1">
+                <h3 className="my-4 text-2xl font-semibold text-gray-700">Account Register</h3>
+                <form action="#" className="flex flex-col space-y-5">
+                    <div className="flex flex-col space-y-1">
+                        <label htmlFor="names" className="text-sm font-semibold text-gray-500">Name</label>
+                        <input type="text"  id="names" autoFocus className="input-primary-blue" placeholder='John Doe' />
                     </div>
-
-                    <div className="mb-12 md:mb-0 w-10/12 sm:w-8/12 lg:w-5/12 xl:w-5/12">
-                        <form className='flex flex-col space-y-4'>
-                            <p className="mb-0 mr-4 text-lg">Sign up </p>
-                            
-                            
-                            <div className="space-y-4 text-gray-500 ">
-                                <div className="w-full max-w-[350px]">
-                                    <div className="relative">
-                                        <label  htmlFor="firstname" className="w-full">
-                                            <input   autoComplete="off"   
-                                                placeholder="First Name" type="text" 
-                                                className=" rounded-md border-2 border-gray-300 flex-1 appearance-none 
-                                                    w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 
-                                                    shadow-sm text-normal focus:outline-none focus:ring-2 
-                                                    focus:ring-primary focus:border-transparent [object Object] 0" /> 
-                                            <div  className="w-full relative"></div>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div> 
-                            <div className="space-y-4 text-gray-500 ">
-                                <div className="w-full max-w-[350px]">
-                                    <div className="relative">
-                                        <label  htmlFor="lastname" className="w-full">
-                                            <input   autoComplete="off"   
-                                                placeholder="Last Name" type="text" 
-                                                className=" rounded-md border-2 border-gray-300 flex-1 appearance-none 
-                                                    w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 
-                                                    shadow-sm text-normal focus:outline-none focus:ring-2 
-                                                    focus:ring-primary focus:border-transparent [object Object] 0" /> 
-                                            <div  className="w-full relative"></div>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div> 
-                            <div className="space-y-4 text-gray-500 ">
-                                <div className="w-full max-w-[350px]">
-                                    <div className="relative">
-                                        <label  htmlFor="email" className="w-full">
-                                            <input   autoComplete="off"   
-                                                placeholder="Email" type="email" 
-                                                className=" rounded-md border-2 border-gray-300 flex-1 appearance-none 
-                                                    w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 
-                                                    shadow-sm text-normal focus:outline-none focus:ring-2 
-                                                    focus:ring-primary focus:border-transparent [object Object] 0" /> 
-                                            <div  className="w-full relative"></div>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div> 
-                            <div className="space-y-4 text-gray-500 ">
-                                <div className="w-full max-w-[350px]">
-                                    <div className="relative">
-                                        <label  htmlFor="password" className="w-full">
-                                            <input   autoComplete="off"   
-                                                placeholder="Password" type="password" 
-                                                className=" rounded-md border-2 border-gray-300 flex-1 appearance-none w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-normal focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent [object Object] 0" /> 
-                                            <div  className="w-full relative"></div>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div> 
-
-                            {/* <div className="mb-6 flex items-center justify-between">
-                                <div className="mb-[0.125rem] block min-h-[1.5rem] ">
-                                    <Link to="/forget-password">Forgot password?</Link>
-                                </div> 
-                            </div> */}
-
-                            <div className="text-center lg:text-left">
-                                <button
-                                type="button"
-                                className="w-full md:w-fit inline-block rounded bg-blue-700 px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-blue-600  "
-                                >
-                                Register
-                                </button>
-
-                                <p className="mb-0 mt-2 pt-1 text-sm font-medium">
-                                Already have an account?
-                                <Link to="/login"
-                                    className="text-blue-600 underline ml-2 transition duration-150 ease-in-out hover:text-danger-600 focus:text-danger-600 active:text-danger-700"
-                                    >Sign in</Link>
-                                </p>
-                            </div>
-                        </form>
+                    <div className="flex flex-col space-y-1">
+                        <label htmlFor="email" className="text-sm font-semibold text-gray-500">Email address</label>
+                        <input type="email"  id="email"  className="input-primary-blue" placeholder='example@exampl.com'/>
+                    </div>
+                    <div className="flex flex-col space-y-1">
+                        <div className="flex items-center justify-between">
+                        <label htmlFor="password" className="text-sm font-semibold text-gray-500">Password</label>
+                        </div>
+                        <input type="password" id="password" autoComplete='off' className="input-primary-blue" placeholder='********'  />
+                    </div>
+                <div className="flex items-center space-x-2">
+                    <input
+                    type="checkbox"
+                    id="remember"
+                    className="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
+                    />
+                    <label htmlFor="remember" className="text-sm font-semibold text-gray-500">Read Term and Condition</label>
+                </div>
+                <div>
+                    <button
+                    type="submit"
+                    className="w-full px-4 py-2 text-lg font-semibold text-white transition-colors duration-300 bg-blue-500 rounded-md shadow hover:bg-blue-600 focus:outline-none focus:ring-blue-200 focus:ring-4"
+                    >
+                    Register
+                    </button>
+                </div>
+                <div className="flex flex-col space-y-5">
+                    <span className="flex items-center justify-center space-x-2">
+                    <span className="h-px bg-gray-400 w-14"></span>
+                    <span className="font-normal text-gray-500">or register with</span>
+                    <span className="h-px bg-gray-400 w-14"></span>
+                    </span>
+                    <div className="flex flex-col space-y-4">
+                    
+                    <a
+                        href="#"
+                        className="flex items-center justify-center px-4 py-2 space-x-2 transition-colors duration-300 border border-blue-500 rounded-md group hover:bg-blue-500 focus:outline-none"
+                    >
+                        <span>
+                        <svg className="text-blue-500 group-hover:text-white" width="20" height="20" fill="currentColor">
+                            <path
+                            d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84"
+                            ></path>
+                        </svg>
+                        </span>
+                        <span className="text-sm font-medium text-blue-500 group-hover:text-white">Twitter</span>
+                    </a>
+                    <div className="flex flex-col space-y-1">
+                    <div className="flex items-center place-content-center">
+                        <p  className="text-sm font-semibold text-gray-500">Already have an account?  </p>
+                        <Link to="/login" className="text-sm text-blue-600 hover:underline focus:text-blue-800"> Login</Link>
+                    </div>
+                    </div>
                     </div>
                 </div>
+                </form>
             </div>
-        </section> 
-    </>
+        </div>
+    </div>
   )
 }
 

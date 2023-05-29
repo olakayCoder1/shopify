@@ -1,24 +1,19 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import Header from "../components/Header"
 import {Button, Modal , Carousel} from 'flowbite-react'
 import Footer from "../components/Footer";
 import  Carts from "../components/carts/Carts";
-
+import api from '../api/product'
 
 const ProductDetails = () => {
 
-    const [ showCart , setShowCart ] = useState(false)
-
-    function handleCartShow(){
-        setShowCart(!showCart)
-    }
-
+    
     
 
     const k = 'https://mdbcdn.b-cdn.net/img/new/slides/146.webp'
   return (
     <div>
-      <Header toggleCart={showCart} setToggleCart={handleCartShow}/>
+      <Header />
       <div>
       <section className="text-gray-700 body-font overflow-hidden bg-white">
   <div className="container px-5 py-24 mx-auto">
@@ -42,7 +37,7 @@ const ProductDetails = () => {
       {/* <img alt="ecommerce" className="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200" src="https://www.whitmorerarebooks.com/pictures/medium/2465.jpg" /> */}
       <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
         <h2 className="text-sm title-font text-gray-500 tracking-widest">BRAND NAME</h2>
-        <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">The Catcher in the Rye</h1>
+        <h1 className="heading">The Catcher in the Rye</h1>
         <div className="flex mb-4">
           <span className="flex items-center">
             <svg fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 text-red-500" viewBox="0 0 24 24">
@@ -80,7 +75,7 @@ const ProductDetails = () => {
             </a>
           </span>
         </div>
-        <p className="leading-relaxed">
+        <p className="leading-6  text-sm font-medium text-gray-500 ">
             Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha
              taximy chia microdosing tilde DIY. XOXO fam indxgo juiceramps cornhole raw 
              denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub 
@@ -124,7 +119,6 @@ const ProductDetails = () => {
   </div>
 </section>
       </div>
-        <Carts toggleCart={showCart} setToggleCart={handleCartShow}/>
         <Footer />
     </div>
   )

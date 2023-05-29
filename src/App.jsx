@@ -1,14 +1,12 @@
-import {React , useState } from 'react'
-import Dashboard from './pages/admin/Dashboard'
+import {useState } from 'react'
 import AdminContainer from './pages/admin/AdminContainer';
 import Products from './pages/Products';
-import AdminWrapper from './pages/admin/AdminWrapper'
 import {Route, Routes } from "react-router-dom";
 import RequireAuth from './components/RequireAuth';
 import Unauthorized from './components/Unauthorized';
 import Missing from './components/Missing';
 import Layout from './components/Layout';
-import Login from './pages/admin/Login';
+import Login from './pages/Login';
 import Woker from './components/Woker';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
@@ -17,7 +15,8 @@ import ResetPassword from './Pages/ResetPassword'
 import Register from './pages/Register';
 import ProductDetails from './pages/ProductDetails';
 import About from './pages/About';
-import TestK from './TestK';
+
+
 const ROLES = {
   'User': 2001,
   'Editor': 1984,
@@ -29,7 +28,7 @@ function App() {
 
   
   return (
-    <div className=' text-sm font-normal text-gray-700 bg-white'>
+    <div className=' text-sm font-normal text-gray-600 bg-white  font-merri '>
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route path="unauthorized" element={<Unauthorized />} />
@@ -43,7 +42,6 @@ function App() {
         <Route path="/aboutus" element={<About/>} /> 
         <Route path="/forget-password" element={<ForgetPassword/>} />  
         <Route path="/reset-password" element={<ResetPassword/>} /> 
-        {/* <Route path="/" element={<TestK/>} /> */}
         <Route path="/" element={<Home/>} />
         
         {/* we want to protect these routes */}

@@ -1,15 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Wix+Madefor+Display:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body{
-    background-color: #f5f5f5;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
+
+
+@layer components {
+    .btn-blue {
+      @apply w-full py-3 px-4 bg-loanBlue-primary text-white text-sm font-medium rounded  border-[1px] focus:outline-none focus:ring-0 uppercase ;
+    }
+  }
+
+
+  @layer components {
+    .btn-red {
+      @apply w-full py-3 px-4 bg-pink-600 rounded border-[1px] border-pink-600 transition duration-150 ease-in-out leading-normal text-white hover:bg-pink-700 focus:outline-none focus:ring-0 uppercase ;
+    }
+  }
+
+@layer components {
+    .btn-white {
+      @apply w-full py-3 px-4 bg-shopify-outline rounded border-[1px]  border-shopify-outline  focus:outline-none focus:ring-0 uppercase ;
+    }
+  }
+
+
+
+@layer components {
+    .input-primary {
+      @apply  text-gray-500 rounded-md border-[1px] border-gray-300 flex-1 appearance-none w-full py-2.5 px-4 bg-white placeholder-gray-400 placeholder:text-sm shadow-sm focus:outline-none focus:ring-1 focus:ring-pink-400  focus:border-pink-400  ;
+    }
+}
+
+
+@layer components {
+    .input-primary-blue {
+      @apply  px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200  ;
+    }
+}
+
+
+@layer components {
+    .text-description {
+      @apply  text-xs font-medium py-2 text-gray-400;
+    }
+}
+
+
+@layer components {
+    .heading {
+      @apply  text-gray-900 text-3xl  font-medium mb-1 ;
+    } 
+}
+
+@layer components {
+  .nav-heading {
+    @apply  text-xl font-semibold ;
+  }
 }

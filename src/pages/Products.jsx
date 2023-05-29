@@ -7,18 +7,11 @@ import  Carts from "../components/carts/Carts";
 
 const Products = () => {
 
-    const [ showCart , setShowCart ] = useState(false)
-
-    function handleCartShow(){
-        setShowCart(!showCart)
-    }
-
-    
 
     const k = 'https://mdbcdn.b-cdn.net/img/new/slides/146.webp'
   return (
     <div>
-      <Header toggleCart={showCart} setToggleCart={handleCartShow}/>
+      <Header />
       <div>
         <div>
             <section className="mb-16 h-1/2 w-full">
@@ -63,7 +56,6 @@ const Products = () => {
             <Woker />
         </div>
       </div>
-        <Carts toggleCart={showCart} setToggleCart={handleCartShow}/>
         <Footer />
     </div>
   )

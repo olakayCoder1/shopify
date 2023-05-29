@@ -57,7 +57,7 @@ const CreateItem = () => {
                                                     </div> 
                                                     <input   autocomplete="off"   
                                                         placeholder="Product Name" type="text" 
-                                                        class=" rounded-md border-2 border-gray-300 flex-1 appearance-none w-full py-3 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent [object Object] 0" /> 
+                                                        class="input-primary" /> 
                                                     <div  class="w-full relative"></div>
                                                 </label>
                                             </div>

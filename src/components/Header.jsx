@@ -5,14 +5,18 @@ import Logo from '../assets/Group 128.png';
 import userlogo from "../assets/avatar.png";
 import { Link, useNavigate } from "react-router-dom";
 import {GiHamburgerMenu} from 'react-icons/gi'
-
+import Cart from '../components/carts/Carts'
 
 
 
 const HeaderLink = ({ linkName, linkHref  }) => {
 
+
+    if(window.location.pathname === ''){
+
+    }
     return (
-        <Link to={linkHref} className="text-sm font-semibold uppercase  duration-100 transition-all ease-in-out cursor-pointer">
+        <Link to={linkHref} className={`${window.location.pathname === linkHref ? "text-blue-700":"text-red-600 " } text-sm font-semibold uppercase  duration-100 transition-all ease-in-out cursor-pointer  decoration-2"`}>
             {linkName}
         </Link>
     )
@@ -28,9 +32,12 @@ const Header = ({ toggleCart , setToggleCart }) => {
   const [isMenu, setIsMenu] = useState(false);
 
 
-  function handleCart(){
-    setToggleCart()
-  }
+
+  const [ showCart , setShowCart ] = useState(false)
+
+    function handleCartShow(){
+        setShowCart(!showCart)
+    }
 
   return (
     <header className="fixed z-50 w-full border  p-2 px-4 md:p-3 md:px-16 border-b-[1px] bg-white">
@@ -57,7 +64,7 @@ const Header = ({ toggleCart , setToggleCart }) => {
           <div
             className="relative flex items-center justify-center"
             // onClick={showCart}
-            onClick={handleCart}
+            onClick={handleCartShow}
           >
             <MdShoppingBasket className="text-textColor text-2xl  cursor-pointer" />
               <div className=" absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-600 flex items-center justify-center">
@@ -120,6 +127,7 @@ const Header = ({ toggleCart , setToggleCart }) => {
       {/* mobile */}
       {/* mobile */}
       {/* mobile */}
+      <Carts toggleCart={showCart} setToggleCart={handleCartShow}/>
       {/* mobile */}
       {/* mobile */}
       {/* mobile */}
