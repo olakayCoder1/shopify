@@ -47,9 +47,9 @@ function App() {
         <Route path="/" element={<Home/>} />
         
         {/* we want to protect these routes */}
-        {/* <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}> */}
+        <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
           <Route path="/admin/*" element={<AdminContainer/>} /> 
-        {/* </Route> */}
+        </Route>
         {/* catch all */}
         <Route path="*" element={<Missing />} />
         
