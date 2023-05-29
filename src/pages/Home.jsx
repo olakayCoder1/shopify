@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import Header from "../components/Header"
-import Woker from "../components/Woker";
+// import Woker from "../components/Woker"; 
 import Footer from "../components/Footer";
 import  Carts from "../components/carts/Carts";
 import Promo from '../components/example/Promo';
@@ -35,7 +35,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-            <Woker />
+            {/* <Woker /> */}
             <Promo />
             <Feature />
         </div>

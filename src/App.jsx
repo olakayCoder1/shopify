@@ -15,7 +15,7 @@ import ResetPassword from './Pages/ResetPassword'
 import Register from './pages/Register';
 import ProductDetails from './pages/ProductDetails';
 import About from './pages/About';
-
+import Product from './pages/Product';
 
 const ROLES = {
   'User': 2001,
@@ -36,7 +36,8 @@ function App() {
         <Route path="/register" element={<Register/>} />
         <Route path="/p" element={<Woker/>} />
         <Route path="/cta" element={<AdminContainer/>} />
-        <Route path="/products" element={<Products/>} />
+        <Route path="/products" element={<Product/>} />
+        {/* <Route path="/products" element={<Products/>} /> */}
         <Route path="/products/details" element={<ProductDetails/>} />
         <Route path="/contactus" element={<Contact/>} /> 
         <Route path="/aboutus" element={<About/>} /> 

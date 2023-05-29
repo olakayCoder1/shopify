@@ -2,9 +2,22 @@ import {useState , useEffect} from 'react';
 import api from '../api/product';
 import ProductCard from "./ProductCard"
 import LoadingInApp from '../components/LoadingInApp'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { useMediaQuery } from 'react-responsive';
+// import 'swiper/swiper.scss';
+// import 'swiper/components/navigation/navigation.scss';
+
 
 const Woker = () => {
-
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 });
+  
+  let slidesPerView = 2;
+  if (isTablet) {
+    slidesPerView = 3;
+  } else if (isMobile) {
+    slidesPerView = 4;
+  }
   const [featuredProduct, setFeaturedProduct] = useState(null)
 
   useEffect(()=>{
