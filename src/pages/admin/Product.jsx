@@ -1,14 +1,10 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Pagination, Modal , Button , Spinner , Badge } from 'flowbite-react'
-// import SideBar from '../../components/admin/SideBar'
-import SideBar from '../../components/admin/sidebar/SideBar'
-import Header from '../../components/admin/Header'
 import {BsCalendar2Event,BsBasket} from 'react-icons/bs'
 import {BiRefresh} from 'react-icons/bi'
 import BreakDownCard from '../../components/admin/BreakDownCard'
-import { Avatar } from "flowbite-react"
 import ProductTable from '../../components/example/ProductTable'
+
 
 const Product = () => {
     const navigate = useNavigate()
@@ -34,9 +30,6 @@ const Product = () => {
                   <BiRefresh className='w-6 h-6'/>
                 </span>
                 <span>Refresh</span>
-              </p>
-              <p onClick={()=> navigate('/admin/products/create')} className=' shadow-lg text-white flex items-center space-x-1 p-1.5 px-3 rounded-md border border-blue-500 bg-blue-700  cursor-pointer'>
-                <span>Add product</span>
               </p>
             </div>
             

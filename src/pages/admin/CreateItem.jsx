@@ -141,24 +141,24 @@ const CreateItem = () => {
 
             {/* Image preview start */}
             <div class="container mx-auto px-5 py-2 lg:px-32 lg:pt-12">
-            <div class="-m-1 flex flex-wrap md:-m-2">
-            {previews &&
-                previews?.map((pic, index) => {
-                return (
-                    <div key={index} 
-                        // style={}
-                        
-                        class="flex w-1/3 flex-wrap border max-w-[250px] max-h-[250px]">
-                        <div class="w-full h-full p-1 md:p-2">
-                            <img
-                            alt="gallery"
-                            class="block h-full w-full rounded-lg object-cover object-center"
-                            src={pic} />
+                <div class="-m-1 flex flex-wrap md:-m-2">
+                {previews &&
+                    previews?.map((pic, index) => {
+                    return (
+                        <div key={index} 
+                            // style={}
+                            
+                            class="flex w-1/3 flex-wrap border max-w-[250px] max-h-[250px]">
+                            <div class="w-full h-full p-1 md:p-2">
+                                <img
+                                alt="gallery"
+                                class="block h-full w-full rounded-lg object-cover object-center"
+                                src={pic} />
+                            </div>
                         </div>
-                    </div>
-                );
-                })}
-            </div>
+                    );
+                    })}
+                </div>
             </div>
             {/* Image preview end */}
             
