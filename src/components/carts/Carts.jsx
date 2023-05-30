@@ -4,23 +4,21 @@ import { RiRefreshFill } from "react-icons/ri";
 import { motion } from "framer-motion";
 import EmptyCart from "../../assets/emptyCart.svg";
 import CartItem from "./CartItem";
-
-
+import useProduct from "../../hooks/useProduct";
+import { TbCurrencyNaira } from "react-icons/tb";
+import useAuth from "../../hooks/useAuth";
 
 
 const Carts = ({ toggleCart , setToggleCart }) => {
 
-    const me = []
-//   const [{  user } , dispatch ] = useStateValue();
-//   const [{ cartShow, user } , dispatch ] = useStateValue();
+  const { auth } = useAuth();
+  const { cart , getTotalQuantity , getTotalPrice , clearCart } = useProduct();
+  const cartItemCount = getTotalQuantity();
+  const cartTotalPrice = getTotalPrice();
+  
+
   const [flag, setFlag] = useState(1);
-  const [tot, setTot] = useState(0);
-  const [showCart, setShowCart] = useState(false)
-    const user = {
-        id : 1,
-        'username':'olakay',
-        'email':'olakay@gmail.com'
-      }
+  console.log(auth)
 
       function handleCart(){
         setToggleCart()
@@ -29,43 +27,35 @@ const Carts = ({ toggleCart , setToggleCart }) => {
   return (
     
     
-    <motion.div
-      initial={{ opacity: 0, x: 20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration:2}}
-      exit={{ opacity: 0, x: 200 }}
-      className={`${toggleCart ? "fixed duration-300 w-full md:w-[375px]  h-screen bg-white drop-shadow-md top-0 right-0  flex flex-col z-[101] pb-20 " : "hidden "} `}
+    <motion.div transition={{ duration:2}}
+      // jus added
+      onViewportEnter={{duration: 2}}
+      className={`${toggleCart ? "fixed duration-300 w-full md:w-[375px]  h-screen bg-white drop-shadow-md top-0 right-0  flex flex-col z-[101] pb-20 " : "hidden "} translate-x-3 `}
     >
       <div className="w-full flex items-center justify-between p-4 cursor-pointer">
-        <motion.div whileTap={{ scale: 0.75 }}
-        //  onClick={()=> setShowCart(!showCart)}
-          onClick={handleCart}
-         >
+        <motion.div whileTap={{ scale: 0.75 }}   onClick={handleCart} >
           <MdOutlineKeyboardBackspace className="text-gray-700 text-3xl" />
         </motion.div>
-        <p className="text-gray-700 text-lg font-merriweather font-semibold">Cart</p>
+        <p className="text-gray-700 text-lg font-semibold">Cart</p>
 
-        <motion.p
-          whileTap={{ scale: 0.75 }}
-          onClick={handleCart}
+        <motion.p  whileTap={{ scale: 0.8 }}  onClick={()=> clearCart()}
           className="flex items-center   gap-2 p-1 px-2 my-2 bg-gray-100 rounded-md hover:shadow-md  cursor-pointer text-gray-700 text-base"
-        //   onClick={clearCart}
         >
           Clear <RiRefreshFill />
         </motion.p>
       </div>
 
       {/* bottom section */}
-      {me?.length > 0 ? (
-        <div className="w-full h-full bg-cartBg rounded-t-[2rem] flex flex-col">
+      {cart?.length > 0 ? (
+        <div className="w-full h-full  rounded-t-[2rem] flex flex-col">
           {/* cart Items section */}
-          <div className="w-full h-340 md:h-42 px-6 py-10 flex flex-col gap-3 overflow-y-scroll scrollbar-none">
+          <div className="w-full md:w-[375px] h-340 md:h-42 divide-y-2 p-2 pb-10 flex flex-col overflow-y-auto">
             {/* cart Item */}
-            {me?.length > 0 &&
-              me.map((item,index) => (
+            {cart?.length > 0 &&
+              cart.map((item,index) => (
                 <CartItem
                   key={index}
-                  item={'kabby'}
+                  item={item}
                   setFlag={setFlag}
                   flag={flag}
                   onClick={handleCart}
@@ -76,24 +66,27 @@ const Carts = ({ toggleCart , setToggleCart }) => {
           {/* cart total section */}
           <div className="w-full flex-1 bg-cartTotal rounded-t-[2rem] flex flex-col items-center justify-evenly px-8 py-2">
             <div className="w-full flex items-center justify-between">
-              <p className="text-gray-700 text-lg">Sub Total</p>
-              <p className="text-gray-700 text-lg">$ {890}</p>
+              <p className="text-gray-700 text-lg">Total Items</p>
+              <p className="text-gray-700 text-lg">{cartItemCount}</p>
             </div>
             <div className="w-full flex items-center justify-between">
               <p className="text-gray-700 text-lg">Delivery</p>
-              <p className="text-gray-700 text-lg">$ 2.5</p>
+              <p className="flex items-center text-gray-700 text-lg">
+                <TbCurrencyNaira />
+                {cartTotalPrice / 5 }</p>
             </div>
 
             <div className="w-full border-b border-gray-600 my-2"></div>
 
             <div className="w-full flex items-center justify-between">
               <p className="text-gray-700 text-xl font-semibold">Total</p>
-              <p className="text-gray-700 text-xl font-semibold">
-                ${355 + 2.5}
+              <p className=" flex items-center text-gray-700 text-xl font-semibold">
+                <TbCurrencyNaira className=" w-6 h-6"/>
+                {cartTotalPrice ? cartTotalPrice : 0}
               </p>
             </div>
 
-            {user ? (
+            {auth ? (
               <motion.button
                 whileTap={{ scale: 0.8 }}
                 type="button"

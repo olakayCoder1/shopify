@@ -2,8 +2,14 @@ import {motion} from 'framer-motion'
 import {TbCurrencyNaira} from 'react-icons/tb'
 import { MdShoppingBasket} from "react-icons/md";
 import { Link } from 'react-router-dom';
+import useProduct from '../hooks/useProduct';   
+
 
 const ProductCard = ({product}) => {
+
+    const {cart, addToCart } = useProduct();
+    // add to cart
+    const handleAddToCart = () =>  addToCart(product); 
 
   return (
     <motion.div whileHover={{ scale: 1.01, boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)' }} className="w-full h-fit md:max-w-sm bg-white  rounded-lg ">
@@ -29,7 +35,7 @@ const ProductCard = ({product}) => {
                     </span>
                     <span>{product?.price}</span>
                 </span>
-                <motion.span whileTap={{scale: .7}}  className=' p-2 border rounded-full cursor-pointer group bg-red-500 text-white'>
+                <motion.span whileTap={{scale: .8}} onClick={handleAddToCart}  className=' p-2 border rounded-full cursor-pointer group bg-red-500 text-white'>
                     <MdShoppingBasket  className=''/>
                 </motion.span>
             </div>

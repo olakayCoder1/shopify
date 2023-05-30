@@ -6,7 +6,7 @@ import userlogo from "../assets/avatar.png";
 import { Link, useNavigate } from "react-router-dom";
 import {GiHamburgerMenu} from 'react-icons/gi'
 import Carts from '../components/carts/Carts'
-
+import useProduct from "../hooks/useProduct";
 
 
 const HeaderLink = ({ linkName, linkHref  }) => {
@@ -26,7 +26,8 @@ const HeaderLink = ({ linkName, linkHref  }) => {
 
 const Header = ({ toggleCart , setToggleCart }) => {
 
-
+  const { cart , getTotalQuantity , getTotalPrice , clearCart } = useProduct();
+  const cartItemCount = getTotalQuantity();
   const navigate = useNavigate()
 
   const [isMenu, setIsMenu] = useState(false);
@@ -74,7 +75,7 @@ const Header = ({ toggleCart , setToggleCart }) => {
             <MdShoppingBasket className="text-textColor text-2xl  cursor-pointer" />
               <div className=" absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-600 flex items-center justify-center">
                 <p className="text-xs text-white font-semibold">
-                  0
+                  {cartItemCount}
                 </p>
               </div>
 
@@ -132,7 +133,7 @@ const Header = ({ toggleCart , setToggleCart }) => {
       {/* mobile */}
       {/* mobile */}
       {/* mobile */}
-      <Carts toggleCart={showCart} setToggleCart={handleCartShow}/>
+      <Carts toggleCart={!showCart} setToggleCart={handleCartShow}/>
       {/* mobile */}
       {/* mobile */}
       {/* mobile */}
