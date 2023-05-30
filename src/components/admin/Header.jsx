@@ -18,7 +18,7 @@ const Header = ({pageName}) => {
         >
           <div className="hidden sm:block space-y-1 font-medium ">
             <div>
-              Jese Leos
+              Olanrewaju AbdulKabeer
             </div>
             <div className=" text-xs">
               olakay@gmail.com

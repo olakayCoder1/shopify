@@ -1,6 +1,5 @@
 import {useState} from 'react'
 import Header from "../components/Header"
-import Woker from "../components/Woker";
 import Footer from "../components/Footer";
 import  Carts from "../components/carts/Carts";
 

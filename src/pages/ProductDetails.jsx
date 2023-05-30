@@ -3,7 +3,7 @@ import Header from "../components/Header"
 import {Button, Modal , Carousel} from 'flowbite-react'
 import Footer from "../components/Footer";
 import  Carts from "../components/carts/Carts";
-import api from '../api/product'
+import api from '../api/axios'
 
 const ProductDetails = () => {
 

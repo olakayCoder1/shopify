@@ -1,7 +1,8 @@
-
-
+import {motion} from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 
 export default function Promo() {
+  const navigate = useNavigate()
 
     return (
       <div className="relative overflow-hidden bg-white">
@@ -84,12 +85,9 @@ export default function Promo() {
                   </div>
                 </div>
   
-                <button className="btn-red w-fit"
-                  // href="#"
-                  // className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700"
-                >
+                <motion.button whileTap={{ scale: 0.8 }} className="btn-red w-fit" onClick={() => navigate('/products')} >
                   Shop Collection
-                </button>
+                </motion.button>
               </div>
             </div>
           </div>

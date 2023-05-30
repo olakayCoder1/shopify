@@ -2,8 +2,11 @@ import {useState , useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import Header from "../components/Header"
 import Footer from "../components/Footer";
-import api from '../api/product';
+import api from '../api/axios';
 import { motion } from 'framer-motion';
+import ExampleComponent from '../ExampleComponent';
+import ProductCard from '../components/ProductCard';
+
 
 const products = [
   {
@@ -43,20 +46,19 @@ const products = [
 
 
 
-const ProductCard = ({product}) => {
+export const CategoryTab = ({linkName, linkHref , isActive , setCategory}) => {
+    const setProductCategory = () => {
+        if(linkHref !== '#'){
+            setCategory(linkHref)
+        }else{
+            setCategory('all')
+        }
+    }
+    
     return (
-        <motion.div whileHover={{ scale: 1.1, boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)' }}  className="group">
-            <div className=" w-full overflow-hidden rounded-lg bg-gray-200 aspect-square">
-            <a href="/products/details" className=' w-full h-full'>
-                <img   src={product.image}  alt={product.title}
-                    className="h-full w-full object-cover object-center group-hover:opacity-75"
-                />
-            </a>
-            
-            </div>
-            <h3 className="mt-4 text-sm text-gray-700 truncate mx-2">{product.title}</h3>
-            <p className="mt-1 text-lg font-medium text-gray-900 mx-2">{product.price}</p>
-        </motion.div>
+        <li onClick={setProductCategory} className="mr-2">
+            <p  className={`${linkHref === isActive ? "text-blue-600 border-b-2 border-blue-600" : "border-transparent  hover:text-gray-600 hover:border-gray-300"}  cursor-pointer inline-block whitespace-nowrap p-4 border-b-2  rounded-t-lg uppercase `}>{linkName}</p>
+        </li>
     )
 }
 
@@ -67,6 +69,9 @@ export default function Product() {
     const [featuredProduct, setFeaturedProduct] = useState(null)
     const [productCategory, setProductCategory] = useState('electronics')
     const [ loadingProduct, setLoadingProduct] = useState(false)
+    const [ activeCategory, setActiveCategory] = useState('electronics')
+
+    const setCategory = (category) => setProductCategory(category)  ;
 
     useEffect(()=>{
     const fetchProduct = async () => {
@@ -80,6 +85,7 @@ export default function Product() {
         else{
             const response = await api.get(`/products/category/${productCategory}`)
             setFeaturedProduct(response.data)
+            setActiveCategory(productCategory)
             setLoadingProduct(false)
         }
         
@@ -101,6 +107,7 @@ export default function Product() {
     },[productCategory])
 
     const k = 'https://mdbcdn.b-cdn.net/img/new/slides/146.webp'
+    console.log(featuredProduct)
   return (
  
 
@@ -120,16 +127,20 @@ export default function Product() {
                             <div id="dropdown" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
                                 <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
                                 <li>
-                                    <button type="button" className="inline-flex w-full px-4 py-2 hover:bg-gray-100 ">Mockups</button>
+                                    <button type="button" className="inline-flex w-full px-4 py-2 hover:bg-gray-100 ">Electronics</button>
                                 </li>
                                 <li>
-                                    <button type="button" className="inline-flex w-full px-4 py-2 hover:bg-gray-100 ">Templates</button>
+                                    <button type="button" className="inline-flex w-full px-4 py-2 hover:bg-gray-100 ">Jewelery</button>
                                 </li>
                                 <li>
-                                    <button type="button" className="inline-flex w-full px-4 py-2 hover:bg-gray-100 ">Design</button>
+                                    <button type="button" className="inline-flex w-full px-4 py-2 hover:bg-gray-100 ">Men's Clothing</button>
                                 </li>
                                 <li>
-                                    <button type="button" className="inline-flex w-full px-4 py-2 hover:bg-gray-100 ">Logos</button>
+                                    <button type="button" className="inline-flex w-full px-4 py-2 hover:bg-gray-100 ">women's clothing</button>
+                                </li>
+                                
+                                <li>
+                                    <button type="button" className="inline-flex w-full px-4 py-2 hover:bg-gray-100 ">Bag</button>
                                 </li>
                                 </ul>
                             </div>
@@ -148,35 +159,18 @@ export default function Product() {
             </div>
         </section>
         <div className="bg-white text-center ">
-            <div className="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700 mx-auto  max-w-4xl">
-                <ul className="flex flex-wrap -mb-px">
-                    <li onClick={()=>setProductCategory('electronics')} className="mr-2">
-                        <p  className=" cursor-pointer inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 uppercase">electronics</p>
-                    </li>
-                    <li onClick={()=>setProductCategory('jewelery')} className="mr-2">
-                        <p  className=" cursor-pointer inline-block p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active uppercase" aria-current="page">jewelery</p>
-                    </li>
-                    <li onClick={()=>setProductCategory('electronics')} className="mr-2">
-                        <p  className=" cursor-pointer inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 uppercase">men's clothing</p>
-                    </li>
-                    <li onClick={()=>setProductCategory('all')} className="mr-2">
-                        <p  className=" cursor-pointer inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 uppercase">women's clothing</p>
-                    </li>
+            <div className="text-sm font-medium text-center text-gray-500 border-b border-gray-200  mx-auto  md:max-w-4xl">
+                <ul className="flex flex-nowrap -mb-px overflow-x-auto">
+                    <CategoryTab linkName='electronics'  linkHref='electronics' isActive={activeCategory} setCategory={setCategory} />
+                    <CategoryTab linkName='jewelry'  linkHref='jewelery' isActive={activeCategory} setCategory={setCategory}/>
+                    <CategoryTab linkName="men's clothing"  linkHref='#' isActive={activeCategory} setCategory={setCategory}/>
+                    <CategoryTab linkName="women's clothing"  linkHref='#' isActive={activeCategory} setCategory={setCategory}/>
+                    <CategoryTab linkName="Bag"  linkHref='#' isActive={activeCategory} setCategory={setCategory}/>
                     
-                    <li onClick={()=>setProductCategory('all')} className="mr-2">
-                        <p  className=" cursor-pointer inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 uppercase">Bags</p>
-                    </li>
-                    
-                    <li onClick={()=>setProductCategory('all')} className="mr-2">
-                        <p  className=" cursor-pointer inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 uppercase">Shoes</p>
-                    </li>
                 </ul>
             </div>
-            <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-                
-            
-
-                <div className="grid grid-cols-1 gap-x-6 space-y-4 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+            <div className="mx-auto w-[90%]   px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+                <div className="w-full grid grid-cols-1 gap-x-6 space-y-4 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
                 {!loadingProduct ? (
                     featuredProduct?.length > 0 &&  (
                         featuredProduct.map((product, index )=> <ProductCard key={index} product={product}  />)

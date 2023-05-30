@@ -1,29 +1,33 @@
 import {useState , useEffect} from 'react';
-import api from '../api/product';
-import ProductCard from "./ProductCard"
-import LoadingInApp from '../components/LoadingInApp'
+import api from '../api/axios';
+// import ProductCard from "./ProductCard"
+import LoadingInApp from './LoadingInApp'
+import ProductCard  from './ProductCard' 
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper'; 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useMediaQuery } from 'react-responsive';
-// import 'swiper/swiper.scss';
-// import 'swiper/components/navigation/navigation.scss';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 
 const Woker = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 });
   
-  let slidesPerView = 2;
+  let slidesPerView = 4;
   if (isTablet) {
     slidesPerView = 3;
-  } else if (isMobile) {
-    slidesPerView = 4;
+  } else if (isMobile) { 
+    slidesPerView = 1;
   }
   const [featuredProduct, setFeaturedProduct] = useState(null)
 
   useEffect(()=>{
     const fetchProduct = async () => {
       try{
-        const response = await api.get('/products?limit=5')
+        const response = await api.get('/products?limit=10')
         setFeaturedProduct(response.data)
         // console.log(response)
       } catch(err){
@@ -42,7 +46,7 @@ const Woker = () => {
     fetchProduct();
   },[])
 
-  console.log(featuredProduct)
+  console.log(slidesPerView)
 
   return (
     <div>
@@ -50,9 +54,27 @@ const Woker = () => {
 
         <section className="mb-32 p-12 text-gray-800 text-center">
           <h2 className="text-3xl font-bold mb-6 text-center">Featured <u className="text-blue-600">Wears</u></h2>
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 lg:gap-8">
+          {/* <div className="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 lg:gap-8"> */}
             {featuredProduct ? (
-                featuredProduct.map((product, index )=> <ProductCard key={index} product={product} customStyle='text-red-600' />)
+              <Swiper
+                  modules={[Navigation, Pagination, Scrollbar, A11y]}
+                  spaceBetween={20}
+                  slidesPerView={slidesPerView}
+                  navigation
+                  pagination={false}
+                  scrollbar={false} 
+                  onSwiper={(swiper) => console.log('')}
+                  onSlideChange={() => console.log('')}
+              >
+              {featuredProduct?.map((product, index )=> {
+                return (
+                  <SwiperSlide key={index} >
+                    <ProductCard key={index} product={product} />
+                  </SwiperSlide>
+                )
+              })}
+            </Swiper>
+                
             ): (
               // <LoadingInApp />
               <>
@@ -64,7 +86,7 @@ const Woker = () => {
               </>
               
             )}
-          </div>
+          {/* </div> */}
         </section>
         
       </div>

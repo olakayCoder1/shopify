@@ -16,7 +16,7 @@
 
   @layer components {
     .btn-red {
-      @apply w-full py-3 px-4 bg-pink-600 rounded border-[1px] border-pink-600 transition duration-150 ease-in-out leading-normal text-white hover:bg-pink-700 focus:outline-none focus:ring-0 uppercase ;
+      @apply w-full py-3 px-4 bg-red-600 rounded border-[1px] border-red-600 transition duration-150 ease-in-out leading-normal text-white hover:bg-red-700 focus:outline-none focus:ring-0 uppercase ;
     }
   }
 
@@ -60,3 +60,14 @@
     @apply  text-xl font-semibold ;
   }
 }
+
+
+@layer components {
+  .product-card {
+    @apply  text-gray-700 w-72 min-w-[10rem] shadow-lg overflow-hidden
+            rounded-md;
+  }
+}
+
+
+

@@ -43,8 +43,13 @@ const Header = ({ toggleCart , setToggleCart }) => {
     <header className="fixed z-50 w-full border  p-2 px-4 md:p-3 md:px-16 border-b-[1px] bg-white">
       {/* desktop & tablet */}
       <div className="hidden md:flex w-full h-full md:gap-2 lg:gap-0 items-center justify-between">
-        <Link to={"/"} className="flex items-center gap-2">
-          <img src={Logo} className="w-8 object-cover" alt="logo" />
+      <Link to='/'  className="flex items-center justify-between mr-4">
+            <img
+            src={Logo}
+            className="mr-3 h-8"
+            alt="Shopify"
+            />
+            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Shopify</span>
         </Link>
 
        
@@ -69,7 +74,7 @@ const Header = ({ toggleCart , setToggleCart }) => {
             <MdShoppingBasket className="text-textColor text-2xl  cursor-pointer" />
               <div className=" absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-600 flex items-center justify-center">
                 <p className="text-xs text-white font-semibold">
-                  2
+                  0
                 </p>
               </div>
 
