@@ -10,7 +10,7 @@ import Layout from './components/Layout';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
-import ForgetPassword from './Pages/ForgetPassword'  
+import ForgetPassword from './pages/ForgetPassword'  
 import ResetPassword from './pages/ResetPassword'
 import Register from './pages/Register';
 import ProductDetails from './pages/ProductDetails';
