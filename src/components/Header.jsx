@@ -11,12 +11,11 @@ import useProduct from "../hooks/useProduct";
 
 const HeaderLink = ({ linkName, linkHref  }) => {
 
-
-    if(window.location.pathname === ''){
-
-    }
+    const path = `#${linkHref}}`
+    console.log(path)
+   
     return (
-        <Link to={linkHref} className={`${window.location.pathname === linkHref ? "text-blue-700":"text-red-600 " } text-sm font-medium  uppercase  duration-100 transition-all ease-in-out cursor-pointer  decoration-2"`}>
+        <Link to={linkHref} className={`${window.location.hash === path ? "text-blue-700":"text-red-600 " } text-sm font-medium  uppercase  duration-100 transition-all ease-in-out cursor-pointer  decoration-2"`}>
             {linkName}
         </Link>
     )

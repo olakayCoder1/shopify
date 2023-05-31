@@ -105,12 +105,12 @@ export default function Product() {
 
     fetchProduct();
     },[productCategory])
-
+    console.log(window.location.hash) 
     const k = 'https://mdbcdn.b-cdn.net/img/new/slides/146.webp'
     console.log(featuredProduct)
   return (
  
-
+    
 
 <div>
     <Header />
