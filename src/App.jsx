@@ -11,7 +11,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
 import ForgetPassword from './Pages/ForgetPassword'  
-import ResetPassword from './Pages/ResetPassword'
+import ResetPassword from './pages/ResetPassword'
 import Register from './pages/Register';
 import ProductDetails from './pages/ProductDetails';
 import About from './pages/About';
@@ -42,6 +42,7 @@ function App() {
         <Route path="/products/details" element={<ProductDetails/>} />
         <Route path="/contactus" element={<Contact/>} /> 
         <Route path="/aboutus" element={<About/>} /> 
+        <Route path="/profile" element={<About/>} /> 
         <Route path="/forget-password" element={<ForgetPassword/>} />  
         <Route path="/reset-password" element={<ResetPassword/>} /> 
         <Route path="/" element={<Home/>} />

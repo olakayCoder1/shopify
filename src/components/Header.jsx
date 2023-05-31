@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MdShoppingBasket, MdMenu, MdLogout ,MdOutlineLogin } from "react-icons/md";
+import { MdShoppingBasket, MdLogout ,MdOutlineLogin } from "react-icons/md";
 import { motion } from "framer-motion";
 import Logo from '../assets/Group 128.png';
 import userlogo from "../assets/avatar.png";
@@ -24,11 +24,11 @@ const HeaderLink = ({ linkName, linkHref  }) => {
 
 
 
-const Header = ({ toggleCart , setToggleCart }) => {
+const Header = () => {
 
-  const { cart , getTotalQuantity , getTotalPrice , clearCart } = useProduct();
+  const {getTotalQuantity  } = useProduct();
   const cartItemCount = getTotalQuantity();
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   const [isMenu, setIsMenu] = useState(false);
 
@@ -133,7 +133,7 @@ const Header = ({ toggleCart , setToggleCart }) => {
       {/* mobile */}
       {/* mobile */}
       {/* mobile */}
-      <Carts toggleCart={!showCart} setToggleCart={handleCartShow}/>
+      <Carts toggleCart={showCart} setToggleCart={handleCartShow}/>
       {/* mobile */}
       {/* mobile */}
       {/* mobile */}

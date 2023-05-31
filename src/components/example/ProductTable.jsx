@@ -186,7 +186,8 @@ const ProductTable = () => {
     </form>
     </Modal.Body>
     <Modal.Footer>
-      <Button onClick={() => setShowAddItem(false)}>
+      <Button 
+        onClick={() => setShowAddItem(false)} >
         Add product
       </Button>
       <Button
