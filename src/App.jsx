@@ -25,38 +25,35 @@ const ROLES = {
 
 
 function App() {
-
-  
   return (
-    <div className=' text-sm font-normal text-gray-600 bg-white  font-merri '>
+    <div className='text-sm font-normal text-gray-600 bg-white font-merri'>
       {/* Notification */}
       <ToastContainer />
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route path="unauthorized" element={<Unauthorized />} />
-        <Route path="/login" element={<Login/>} />
-        <Route path="/register" element={<Register/>} />
-        <Route path="/cta" element={<AdminContainer/>} />
-        <Route path="/products" element={<Product/>} />
-        <Route path="/products/details" element={<ProductDetails/>} />
-        <Route path="/contactus" element={<Contact/>} /> 
-        <Route path="/aboutus" element={<About/>} /> 
-        <Route path="/profile" element={<About/>} /> 
-        <Route path="/forget-password" element={<ForgetPassword/>} />  
-        <Route path="/reset-password" element={<ResetPassword/>} /> 
-        <Route path="/" element={<Home/>} />
-        
-        {/* we want to protect these routes */}
-        <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
-          <Route path="/admin/*" element={<AdminContainer/>} /> 
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route path="unauthorized" element={<Unauthorized />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/cta" element={<AdminContainer />} />
+          <Route path="/products" element={<Product />} />
+          <Route path="/products/details" element={<ProductDetails />} />
+          <Route path="/contactus" element={<Contact />} />
+          <Route path="/aboutus" element={<About />} />
+          <Route path="/profile" element={<About />} />
+          <Route path="/forget-password" element={<ForgetPassword />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/" element={<Home />} />
+
+          {/* we want to protect these routes */}
+          <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
+            <Route path="/admin/*" element={<AdminContainer />} />
+          </Route>
         </Route>
         {/* catch all */}
         <Route path="*" element={<Missing />} />
-        
-      </Route>
-    </Routes>
+      </Routes>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
