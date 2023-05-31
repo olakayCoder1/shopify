@@ -16,7 +16,6 @@ import Register from './pages/Register';
 import ProductDetails from './pages/ProductDetails';
 import About from './pages/About';
 import Product from './pages/Product';
-import ExampleComponent from './ExampleComponent';
 
 const ROLES = {
   'User': 2001,
@@ -46,7 +45,6 @@ function App() {
         <Route path="/forget-password" element={<ForgetPassword/>} />  
         <Route path="/reset-password" element={<ResetPassword/>} /> 
         <Route path="/" element={<Home/>} />
-        {/* <Route path="/" element={<ExampleComponent/>} /> */}
         
         {/* we want to protect these routes */}
         <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
