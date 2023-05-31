@@ -15,7 +15,7 @@ import ResetPassword from './pages/ResetPassword'
 import Register from './pages/Register';
 import ProductDetails from './pages/ProductDetails';
 import About from './pages/About';
-import Product from './pages/Product';
+import Product from './pages/Product'; 
 
 const ROLES = {
   'User': 2001,
