@@ -88,17 +88,18 @@ const Carts = ({ toggleCart , setToggleCart }) => {
 
             {auth ? (
               <motion.button
-                whileTap={{ scale: 0.8 }}
-                type="button"
-                className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg"
-              >
-                Check Out
-              </motion.button>
+              whileTap={{ scale: 0.8 }}
+              type="button"
+              className="btn-red "
+            >
+              Check Out
+            </motion.button>
+              
             ) : (
               <motion.button
                 whileTap={{ scale: 0.8 }}
                 type="button"
-                className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg"
+                className="btn-red "
               >
                 Login to check out
               </motion.button>

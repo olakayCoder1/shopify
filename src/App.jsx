@@ -17,6 +17,8 @@ import ProductDetails from './pages/ProductDetails';
 import About from './pages/About';
 import Product from './pages/Product';
 import ExampleComponent from './ExampleComponent';
+import Checkout from './pages/Checkout';
+import Profile from './pages/Profile' 
 
 const ROLES = {
   'User': 2001,
@@ -40,9 +42,10 @@ function App() {
         <Route path="/cta" element={<AdminContainer/>} />
         <Route path="/products" element={<Product/>} />
         <Route path="/products/details" element={<ProductDetails/>} />
+        <Route path="/checkout" element={<Checkout/>} />
         <Route path="/contactus" element={<Contact/>} /> 
         <Route path="/aboutus" element={<About/>} /> 
-        <Route path="/profile" element={<About/>} /> 
+        <Route path="/profile" element={<Profile/>} /> 
         <Route path="/forget-password" element={<ForgetPassword/>} />  
         <Route path="/reset-password" element={<ResetPassword/>} /> 
         <Route path="/" element={<Home/>} />
