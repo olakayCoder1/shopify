@@ -54,12 +54,12 @@ const Checkout = () => {
         <Header />
         <div>
             <section className="bg-white grid  md:grid-cols-3  max-w-7xl mx-auto">
-                <div className=" md:col-span-2 py-16 px-4 mx-8">
+                <div className=" md:col-span-2 py-16 md:px-4 mx-8">
                     <h2 className="heading">Billing Details</h2>
                     <p className="mb-8 lg:mb-16 font-light text-center   sm:text-xl"></p>
                
                     <form action="#" className=''>
-                        <div class="grid gap-4 mb-4 md:grid-cols-2">
+                        <div class="grid gap-4 mb-4 md:grid-rows-2 ">
                             <div>
                                 <label htmlFor="first_name" className="block mb-2 text-sm font-medium ">First Name *</label>
                                 <input type="text" id="first_name" className="input-primary-blue w-full" placeholder="" required />
@@ -76,12 +76,12 @@ const Checkout = () => {
                                 <label htmlFor="phone" className="block mb-2 text-sm font-medium ">Phone *</label>
                                 <input type="number" id="phone" className="input-primary-blue w-full" placeholder="" required />
                             </div>
-                            <div className=' col-span-2'>
-                                <label htmlFor="email" className="block mb-2 text-sm font-medium ">Address *</label>
-                                <input type="email" id="email" className="input-primary-blue w-full" placeholder="" required />
+                            <div className='md:col-span-2'>
+                                <label htmlFor="address" className="block mb-2 text-sm font-medium ">Address *</label>
+                                <input type="text" id="address" className="input-primary-blue w-full" placeholder="" required />
                             </div>
                             <div>
-                                <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">State *</label>
+                                <label for="category" class="block mb-2 text-sm font-medium text-gray-900 ">State *</label>
                                 <select id="category" class="input-primary-blue w-full" name='state'>
                                     <option disabled selected="">Select a state</option> 
                                     {nigeriaStates.map((state , index ) => {
@@ -90,7 +90,7 @@ const Checkout = () => {
                                 </select>
                             </div>
                             <div>
-                                <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">City *</label>
+                                <label for="category" class="block mb-2 text-sm font-medium text-gray-900 ">City *</label>
                                 <select id="category" class="input-primary-blue w-full" name='city'>
                                     <option disabled selected="">Select a state</option>
                                     {nigeriaStates.map((state , index ) => {
@@ -98,7 +98,7 @@ const Checkout = () => {
                                     })}
                                 </select>
                             </div>
-                            <div className="col-span-2">
+                            <div className="md:col-span-2">
                                 <label htmlFor="message" className="block mb-2 text-sm font-medium ">Order notes (optional)</label>
                                 <textarea id="message" rows="6" className="input-primary-blue w-full    " placeholder="Notes about your order, eg. special notes for delivery"></textarea>
                             </div>
