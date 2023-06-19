@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link} from 'react-router-dom'
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
 import { RiRefreshFill } from "react-icons/ri";
 import { motion } from "framer-motion";
@@ -18,7 +19,7 @@ const Carts = ({ toggleCart , setToggleCart }) => {
   
 
   const [flag, setFlag] = useState(1);
-  console.log(auth)
+  
 
       function handleCart(){
         setToggleCart()
@@ -86,24 +87,9 @@ const Carts = ({ toggleCart , setToggleCart }) => {
               </p>
             </div>
 
-            {auth ? (
-              <motion.button
-              whileTap={{ scale: 0.8 }}
-              type="button"
-              className="btn-red "
-            >
+            <Link to='/checkout' type="button" className="btn-red  flex items-center justify-center ">
               Check Out
-            </motion.button>
-              
-            ) : (
-              <motion.button
-                whileTap={{ scale: 0.8 }}
-                type="button"
-                className="btn-red "
-              >
-                Login to check out
-              </motion.button>
-            )}
+            </Link>
           </div>
         </div>
       ) : (

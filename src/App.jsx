@@ -42,15 +42,16 @@ function App() {
         <Route path="/cta" element={<AdminContainer/>} />
         <Route path="/products" element={<Product/>} />
         <Route path="/products/details" element={<ProductDetails/>} />
-        <Route path="/checkout" element={<Checkout/>} />
         <Route path="/contactus" element={<Contact/>} /> 
         <Route path="/aboutus" element={<About/>} /> 
-        <Route path="/profile" element={<Profile/>} /> 
         <Route path="/forget-password" element={<ForgetPassword/>} />  
         <Route path="/reset-password" element={<ResetPassword/>} /> 
         <Route path="/" element={<Home/>} />
         {/* <Route path="/" element={<ExampleComponent/>} /> */}
-        
+        <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>
+          <Route path="/profile" element={<Profile/>} /> 
+          <Route path="/checkout" element={<Checkout/>} />
+        </Route>
         {/* we want to protect these routes */}
         <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
           <Route path="/admin/*" element={<AdminContainer/>} /> 

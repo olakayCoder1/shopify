@@ -22,21 +22,21 @@ const CartItem = ({ item, setFlag, flag }) => {
       /> */}
 
       {/* name section */}
-      <div class="py-3 sm:py-4">
-                <div class="flex items-center space-x-4">
-                    <div class="flex-shrink-0">
-                        <img class="w-8 h-8 rounded" src={item?.product?.image} alt={item?.product?.title} />
+      <div className="py-3 sm:py-4">
+                <div className="flex items-center space-x-4">
+                    <div className="flex-shrink-0">
+                        <img className="w-8 h-8 rounded" src={item?.product?.image} alt={item?.product?.title} />
                     </div>
-                    <div class="flex-1 min-w-0">
-                        <p class="text-sm font-medium text-gray-900 truncate ">
+                    <div className="flex-1 min-w-0">
+                        <p className="text-sm font-medium text-gray-900 truncate ">
                             {item.product.title}
                         </p>
-                        <p class=" flex items-center truncate">
+                        <p className=" flex items-center truncate">
                             <TbCurrencyNaira className="w-5 h-5" />
                             {item.product.price}
                         </p>
                     </div>
-                    <div class="inline-flex items-center text-base font-semibold  ">
+                    <div className="inline-flex items-center text-base font-semibold  ">
                     <div className="group flex items-center gap-2 ml-auto cursor-pointer">
                       <motion.div
                         whileTap={{ scale: 0.75 }}

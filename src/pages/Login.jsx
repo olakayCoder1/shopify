@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate, useLocation,  } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 import api from '../api/axios';
 
@@ -11,41 +11,82 @@ const Login = () => {
     const { setAuth , displayNotification } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
-    // check if we have a location state, if not set it to /admin
-    const from = location.state?.from?.pathname || "/admin";
-    // const from = location.state?.from?.pathname || "/";
+    const queryParams = new URLSearchParams(location.search);
     const [userEmail, setUserEmail] = useState('')
     const [userPassword, setUserPassword] = useState('')
     const [ rememberMe, setRememberMe] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const [currentForm, setCurrentForm] = useState(false)
+    const [ from , setFrom] = useState(location.state?.from?.pathname)
+
+
+    useEffect(() => {
+        if(from === '/admin'){
+            setCurrentForm('admin')
+            navigate('/login#admin')
+        }else{
+            setCurrentForm('user')
+        }
+        
+    },[])
 
 
     const handleSubmit = async (e) => {
         
         e.preventDefault();
 
-        if(!userEmail || !userPassword) {
-            console.log('submitted')  
-            // setErrMsg('Missing Username or Password');
-            displayNotification('error','Missing Username or Password')
-            return;
-        }
-        try {
-            const response = await api.get('/products?limit=10')
-            setAuth({ "firstName": "Olanrewaju", 'lastName':'Abdulkabber', 'roles': [5150] });
-            navigate(from, { replace: true });
-
-        } catch (err) {
-            if (!err?.response) {
-                // setErrMsg('No Server Response');
-            } else if (err.response?.status === 400) {
-                // setErrMsg('Missing Username or Password');
-            } else if (err.response?.status === 401) {
-                // setErrMsg('Unauthorized');
-            } else {
-                // setErrMsg('Login Failed');
+        if(currentForm === 'admin'){
+            alert(from)
+            if(!userEmail || !userPassword) {
+                displayNotification('error','Missing Username or Password')
+                return;
             }
+            try { 
+                const response = await api.get('/products?limit=10')
+                setAuth({ "firstName": "Olanrewaju", 'lastName':'Abdulkabber', 'roles': [5150] });
+                if(from){
+                    navigate(from, { replace: true });
+                }else{
+                    navigate('/admin', { replace: true });
+                }
+    
+            } catch (err) {
+                if (!err?.response) {
+                    // setErrMsg('No Server Response');
+                } else if (err.response?.status === 400) {
+                    // setErrMsg('Missing Username or Password');
+                } else if (err.response?.status === 401) {
+                    // setErrMsg('Unauthorized');
+                } else {
+                    // setErrMsg('Login Failed');
+                }
+            }
+            return;
+        }else{
+            if(!userEmail || !userPassword) {
+                displayNotification('error','Missing Username or Password')
+                return;
+            }
+            try {
+                const response = await api.get('/products?limit=10')
+                setAuth({ "firstName": "Olanrewaju", 'lastName':'Abdulkabber', 'roles': [2001] });
+                if(from){
+                    navigate(from, { replace: true });
+                }else{
+                    navigate('/profile', { replace: true });
+                }
+            } catch (err) {
+                if (!err?.response) {
+                    // setErrMsg('No Server Response');
+                } else if (err.response?.status === 400) {
+                    // setErrMsg('Missing Username or Password');
+                } else if (err.response?.status === 401) {
+                    // setErrMsg('Unauthorized');
+                } else {
+                    // setErrMsg('Login Failed');
+                }
+            }
+            return;
         }
     }
 

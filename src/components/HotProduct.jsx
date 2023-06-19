@@ -46,7 +46,7 @@ const Woker = () => {
     fetchProduct();
   },[])
 
-  console.log(slidesPerView)
+  
 
   return (
     <div>

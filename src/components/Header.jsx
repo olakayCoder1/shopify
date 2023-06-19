@@ -12,7 +12,6 @@ import useProduct from "../hooks/useProduct";
 const HeaderLink = ({ linkName, linkHref  }) => {
 
     const path = `#${linkHref}}`
-    console.log(path)
    
     return (
         <Link to={linkHref} className={`${window.location.hash === path ? "text-blue-700":"text-red-600 " } text-sm font-medium  uppercase  duration-100 transition-all ease-in-out cursor-pointer  decoration-2"`}>
