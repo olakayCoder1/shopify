@@ -59,7 +59,7 @@ const Checkout = () => {
                     <p className="mb-8 lg:mb-16 font-light text-center   sm:text-xl"></p>
                
                     <form action="#" className=''>
-                        <div class="grid gap-4 mb-4 sm:grid-cols-2">
+                        <div class="grid gap-4 mb-4 md:grid-cols-2">
                             <div>
                                 <label htmlFor="first_name" className="block mb-2 text-sm font-medium ">First Name *</label>
                                 <input type="text" id="first_name" className="input-primary-blue w-full" placeholder="" required />
